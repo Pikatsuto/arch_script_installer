@@ -32,7 +32,7 @@ Arch Scripte Installer is a clean and complete archlinux installation script int
 
 ### Installation
 For the installation you can go to the wiki at this page
-- [Arch Script Installer - Tuto](https://github.com/Pikatsuto/arch_script_installer/wiki/arch_script_installer)
+- [Arch Script Installer - Tuto](https://github.com/Pikatsuto/arch_script_installer/wiki/Arch-Script-Installer-Tuto)
 
 ### Credit
 - [FredBezies - arch-tuto-installation](https://github.com/FredBezies/arch-tuto-installation) that helped me a lot and that I updated on this git
@@ -56,7 +56,7 @@ Arch Scripte Installer est un scripte d'installation archlinux propre et complet
 
 ### Installation
 Pour l'installation vous pouvez aller sur le wiki a cette page
-- [Arch Script Installer - Tuto](https://github.com/Pikatsuto/arch_script_installer/wiki/arch_script_installer)
+- [Arch Script Installer - Tuto](https://github.com/Pikatsuto/arch_script_installer/wiki/Arch-Script-Installer-Tuto)
 
 ### Crédit
 - [FredBezies - arch-tuto-installation](https://github.com/FredBezies/arch-tuto-installation) qui m'a beaucoup aider et que j'ai mis a jours sur ce git
