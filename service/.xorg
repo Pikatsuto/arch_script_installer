@@ -1,0 +1,8 @@
+#!bin/bash
+
+if [ -e /home/arch_install_asiste/xfce_present ]
+then
+    xfce4-terminal -e="bash /home/arch_install_asiste/main.sh --on_user"
+else
+    gnome-terminal -e="bash /home/arch_install_asiste/main.sh --on_user"
+fi
