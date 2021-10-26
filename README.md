@@ -11,7 +11,7 @@ __EN__ This GitHub will be available in French and English __FR__ Ce GitHub sera
 ### Wiki
 - [home](https://github.com/Pikatsuto/arch_script_installer/wiki)
 - [FredBezies - arch-tuto-installation - Updated](https://github.com/Pikatsuto/arch_script_installer/wiki/FredBezies-arch-tuto-installation-updated)
-- [Arch Script Installer - Tuto](https://github.com/Pikatsuto/arch_script_installer/wiki/arch_script_installer)
+- [Arch Script Installer - Tuto](https://github.com/Pikatsuto/arch_script_installer/wiki/Arch-Script-Installer-Tuto)
 
 ## EN 🇬🇧
 

@@ -55,7 +55,7 @@ Commençons par une installation en mode Bios, du point de vue du partitionnemen
 
 Voici donc l’écran qui nous permet de démarrer. J’expliquerai plus bas comment faire cohabiter des logiciels 32 et 64 bits sur une seule installation.
 
-![Illustration 1: écran de démarrage en mode Bios, version 64 bits](wiki/pictures/001.png)
+![Illustration 1: écran de démarrage en mode Bios, version 64 bits](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/001.png)
 
 *Illustration 1: écran de démarrage en mode Bios, version 64 bits*
 
@@ -68,7 +68,7 @@ Pour le partitionnement, si vous avez peur de faire des bêtises, il est plus pr
 
 Avec cfdisk, sur l’écran de démarrage suivant, on choisit l’option « dos » pour le « label type » à appliquer.
 
-![Illustration 2: premier démarrage de cfdisk](wiki/pictures/002.png)
+![Illustration 2: premier démarrage de cfdisk](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/002.png)
 
 *Illustration 2: premier démarrage de cfdisk*
 
@@ -84,7 +84,7 @@ Pour le partitionnement en question :
 
 Il ne faut pas oublier de définir la partition attribuée à /boot comme démarrable (bootable). Ce qui donne l’écran suivant dans cfdisk.
 
-![Illustration 3: cfdisk en action](wiki/pictures/003.png)
+![Illustration 3: cfdisk en action](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/003.png)
 
 *Illustration 3: cfdisk en action*
 
@@ -118,7 +118,7 @@ On peut passer ensuite à l’installation de la base.
 
 Voici donc l’écran qui nous permet de démarrer en mode UEFI, supporté uniquement pour la version 64 bits.
 
-![Illustration 4: démarrage en mode UEFI](wiki/pictures/004.png)
+![Illustration 4: démarrage en mode UEFI](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/004.png)
 *Illustration 4: démarrage en mode UEFI*
 
 Comme pour la section concernant le partitionnement en mode Bios, si vous craignez de faire des bêtises, vous pouvez utiliser gParted en mode liveCD : <http://gparted.org/>
@@ -134,7 +134,7 @@ Il faut se souvenir qu’il faut **obligatoirement** une table de partition GPT 
   
 **Note :** pour la partition /boot/efi, il faut qu’elle soit étiquetée en EF00 à sa création. Pour le swap, c’est la référence 8200.
 
-![Illustration 5: cgdisk en action pour un partitionnement avec un UEFI](wiki/pictures/005.png)
+![Illustration 5: cgdisk en action pour un partitionnement avec un UEFI](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/005.png)
 
 *Illustration 5: cgdisk en action pour un partitionnement avec un UEFI*
 
@@ -178,7 +178,7 @@ export http_proxy=http://leproxy:leport/
 
 Avec l’outil nano nous allons modifier le fichier /etc/pacman.d/mirrorlist pour ne garder qu’un seul miroir. Le plus proche géographiquement et aussi le plus rapide possible. Pour une personne vivant en France, c’est **de préférence** mir.archlinux.fr et / ou archlinux.polymorf.fr.
 
-![Illustration 6: la liste des miroirs disponibles.](wiki/pictures/006.png)
+![Illustration 6: la liste des miroirs disponibles.](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/006.png)
 
 *Illustration 6: la liste des miroirs disponibles.*
 
@@ -315,7 +315,7 @@ mkdir /boot/efi/EFI/boot
 cp /boot/efi/EFI/arch_grub/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 ```
 
-![Illustration 7 : Génération du noyau linux 5.1.15 début juillet 2019](wiki/pictures/007.png)
+![Illustration 7 : Génération du noyau linux 5.1.15 début juillet 2019](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/007.png)
 
 *Illustration 7 : Génération du noyau linux 5.1.15 début juillet 2019*
 
@@ -395,7 +395,7 @@ ForwardToSyslog=yes
 
 Les outils en place, on lance alsamixer avec la commande du même nom, pour configurer le niveau sonore :
 
-![Illustration 8: alsamixer en action](wiki/pictures/008.png)
+![Illustration 8: alsamixer en action](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/008.png)
 
 *Illustration 8: alsamixer en action*
 
@@ -455,7 +455,7 @@ pacman -S xf86-video-vesa
 pacman -S virtualbox-guest-utils
 ```
 
-![Illustration 9: Choix du paquet à installer concernant virtualbox-guest-utils](wiki/pictures/009.png)
+![Illustration 9: Choix du paquet à installer concernant virtualbox-guest-utils](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/009.png)
 
 *Illustration 9: Choix du paquet à installer concernant virtualbox-guest-utils*
 
@@ -590,7 +590,7 @@ Sinon, il suffit de se référer à l’addenda correspondant à l’environneme
 
 Au démarrage suivant, GDM nous accueille, et nous pouvons nous connecter.
 
-![Illustration 10: GDM 3.32.2 avec les sessions Wayland et Gnome sur Xorg](wiki/pictures/010.png)
+![Illustration 10: GDM 3.32.2 avec les sessions Wayland et Gnome sur Xorg](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/010.png)
 
 *Illustration 10: GDM 3.32.2 avec les sessions Wayland et Gnome sur Xorg*
 
@@ -607,19 +607,19 @@ sudo pacman -S xsane unoconv
 
 Il faut penser à vérifier que le clavier est correctement configuré. Ce qui se fait dans menu système unifié, options de configuration.
 
-![Illustration 11: Gnome 3.32.2 en vue activités](wiki/pictures/011.png)
+![Illustration 11: Gnome 3.32.2 en vue activités](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/011.png)
 
 *Illustration 11: Gnome 3.32.2 en vue activités*
 
 On va personnaliser le bureau Gnome en lui ajoutant la date complète et les boutons pour minimiser et maximiser les fenêtres avec Gnome Tweak Tool alias Ajustements.
 
-![Illustration 12: Gnome Tweak Tool en action.](wiki/pictures/012.png)
+![Illustration 12: Gnome Tweak Tool en action.](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/012.png)
 
 *Illustration 12: Gnome Tweak Tool en action.*
 
 Pour finir une capture d’écran du mode « Gnome Shell ».
 
-![Illusration 13: Gnome Shell 3.32.2 et « LibreOffice-fresh »](wiki/pictures/013.png)
+![Illusration 13: Gnome Shell 3.32.2 et « LibreOffice-fresh »](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/013.png)
 
 *Illustration 13: Gnome Shell 3.32.2 et « LibreOffice-fresh »*
 
@@ -659,7 +659,7 @@ Si tout se passe bien, on peut utiliser :
 sudo systemctl enable sddm
 ```
 
-![Illustration 14: Plasma 5.16.x (vue de dossiers) avec les KDE Frameworks 5.59.0](wiki/pictures/014.png)
+![Illustration 14: Plasma 5.16.x (vue de dossiers) avec les KDE Frameworks 5.59.0](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/014.png)
 
 *Illustration 14: Plasma 5.16.x (vue de dossiers) avec les KDE Frameworks 5.59.0* 
 
@@ -714,7 +714,7 @@ sudo systemctl enable lightdm
 
 **Note 5 :** pour avoir des plus jolies icônes, on peut installer le paquet AUR elementary-xfce-icons ou encore les mint-x-icons. mais après, c’est à vous de voir !
 
-![Illustration 15: Xfce 4.14pre2 en action.](wiki/pictures/015.png)
+![Illustration 15: Xfce 4.14pre2 en action.](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/015.png)
 
 *Illustration 15: Xfce 4.14pre2 en action.*
 
@@ -760,7 +760,7 @@ Si tout se passe bien, on peut utiliser :
 sudo systemctl enable accounts-daemon
 sudo systemctl enable lightdm
 ```
-![Illustration 16: Mate Desktop 1.22.1](wiki/pictures/016.png)
+![Illustration 16: Mate Desktop 1.22.1](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/016.png)
 
 *Illustration 16: Mate Desktop 1.22.1*
 
@@ -805,7 +805,7 @@ Si tout se passe bien, on peut utiliser :
 sudo systemctl enable lightdm
 ```
 
-![Illustration 17: Deepin Desktop 15.10.2](wiki/pictures/017.png)
+![Illustration 17: Deepin Desktop 15.10.2](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/017.png)
 
 *Illustration 17: Deepin Desktop 15.10.2*
 
@@ -856,6 +856,6 @@ sudo systemctl enable lightdm
 
 Pour lancer tranquillement Cinnamon dans VirtualBox, il faut dans l’écran LightDM choisir l’option "Cinnamon (Software Rendering)" qui active le rendu logiciel. Sinon, ça plantera tout le temps.
 
-![Illustration 18: Cinnamon 4.2.0](wiki/pictures/018.png)
+![Illustration 18: Cinnamon 4.2.0](https://raw.githubusercontent.com/Pikatsuto/arch_script_installer/master/wiki/pictures/018.png)
 
 *Illustration 18: Cinnamon 4.2.0*
