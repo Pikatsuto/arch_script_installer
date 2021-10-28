@@ -1,6 +1,6 @@
 #!/bin/bash
 set echo off
-cp ../arch_script_installer_asiste /mnt/home/
+cp -R ../arch_script_installer /mnt/home/
 
 function packet_install {
     if [ -e /home/arch_script_installer/powerpill_present ]
@@ -13,41 +13,47 @@ function packet_install {
 
 function end_part {
     echo "Installation des packet de base"
-    pacstrap /mnt base base-devel pacman-contrib linux-firmware nano vim dhcpcd dhclient networkmanager grub os-prober efibootmgr zip unzip p7zip alsa-utils syslog-ng mtools dosfstools lsb-release ntfs-3g exfat-utils bash-completion
+    pacstrap /mnt base base-devel pacman-contrib linux-firmware nano vim dhcpcd dhclient networkmanager grub os-prober efibootmgr zip unzip p7zip alsa-utils syslog-ng mtools dosfstools lsb-release ntfs-3g exfat-utils bash-completion ;
 
     echo "Génération du fstab"
-    genfstab -U -p /mnt >> /mnt/etc/fstab
+    genfstab -U -p /mnt > /mnt/etc/fstab ;
 
-    read -p "Avez vous un efi [Y/n]: " $if_efi
-    echo ""
-    if [ $if_efi == "n" ]
+    echo "Vérification du démarrage sécurisé EFI"
+    efibootmgr | grep "EFI"
+    if [ $1 == "efibootmgr | grep 'EFI'" ]
+    then 
+        $if_efi=true
+    else
+        $if_efi=false
+    fi
+    if [ $if_efi == false ]
     then
         echo "Installation des packet de grub pour bios"
-        touch /mnt/home/arch_script_installer/bios_present
-        pacstrap /mnt grub os-prober
+        touch /mnt/home/arch_script_installer/bios_present ;
+        pacstrap /mnt grub os-prober ;
     else
         echo "Installation des packet de grub pour efi"
-        pacstrap /mnt grub os-prober efibootmgr
+        pacstrap /mnt grub os-prober efibootmgr ;
     fi
 
     echo "Ouverture du arch-chroot"
-    arch-chroot /mnt
+    arch-chroot /mnt ;
 }
 
 function in_arch_chroot {
     echo "Ajout de la lange francaise du clavier et du fuseau horaire"
-    echo "KEYMAP=fr-latin9" >> "/etc/vconsole.conf"
-    echo "FONT=eurlatgr" >> "/etc/vconsole.conf"
-    echo "LANG=fr_FR.UTF-8" >> "/etc/locale.conf"
-    echo "LC_COLLATE=C" >> "/etc/locale.conf"
-    locale-gen
-    export LANG=fr_FR.UTF-8
-    ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
-    hwclock --systohc --utc
+    echo "KEYMAP=fr-latin9" >  "/etc/vconsole.conf" ;
+    echo "FONT=eurlatgr"    >> "/etc/vconsole.conf" ;
+    echo "LANG=fr_FR.UTF-8" >  "/etc/locale.conf"   ;
+    echo "LC_COLLATE=C"     >> "/etc/locale.conf"   ;
+    locale-gen ;
+    export LANG=fr_FR.UTF-8 ;
+    ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime ;
+    hwclock --systohc --utc ;
 
     echo "Ajouts de MultiLib"
-    sed -i -r 's/.*#[multilib].*/[multilib]/g' /etc/pacman.conf
-    sed -i -r 's/.*#Include = /etc/pacman.d/mirrorlist.*/Include = /etc/pacman.d/mirrorlist/g' /etc/pacman.conf
+    sed -i 's/\#\[multilib\]/\[multilib\]/g' /etc/pacman.conf ;
+    sed -i 's/\#Include \= \/etc\/pacman.d\/mirrorlist/Include \= \/etc\/pacman.d\/mirrorlist/g' /etc/pacman.conf ;
 
     read -p "Voulez vous installer le Chaotic-AUR [O/n]: " $chaotic_aur
     if [ $chaotic_aur == "n" ]
@@ -120,7 +126,9 @@ function in_arch_chroot {
     packet_install -S ntp cronie
 
     echo "ajout des log en claire"
-    sed -i -r 's/.*#ForwardToSyslog=no.*/ForwardToSyslog=yes/g' /etc/systemd/journald.conf
+    sed -i -r 's/\#ForwardToSyslog\=no/ForwardToSyslog\=no/g' /etc/systemd/journald.conf ;
+    cat /etc/systemd/journald.conf | grep "ForwardToSyslog\=no" ;
+    
 
     echo "Installation des greffons gstreamer"
     packet_install -S gst-plugins-{base,good,bad,ugly} gst-libav
@@ -178,7 +186,7 @@ function in_arch_chroot {
         echo ""
         if [ $user_verif == "n" ]
         then
-            deluser $machine_user_name
+            userdel $machine_user_name
         else
             read -p "Voulez vous ajouter un autre utilisateur [o/N]: " $add_user
             echo ""
@@ -189,7 +197,8 @@ function in_arch_chroot {
                 break
             fi
         fi
-    sed -i -r 's/.*#Uncomment to allow members of group wheel to execute any command.*Uncomment to allow members of group wheel to execute any command/g' /etc/sudoers
+    sed -i -r 's/\# \%wheel ALL\=\(ALL\) ALL/\%wheel ALL\=\(ALL\) ALL/g' /etc/sudoers ;
+    cat /etc/sudoers | grep "\%wheel ALL\=(ALL) ALL" ;
 
     echo "Activation des service indispensable (heur, bluetooth, etc)"
     systemctl enable syslog-ng@default
@@ -218,6 +227,7 @@ function in_arch_chroot {
         ./autogen.sh
         make
         sudo make install
+    fi
     localectl set-x11-keymap fr
 
     sudo cp service/.xorg /home/$machine_user_name/
@@ -229,7 +239,7 @@ function in_arch_chroot {
         then
             read -P "Voulez vous wine clasique[c] ou wine gaming(TKG-PDS)[T]: " $wine_version
         else
-            $wine_version="c"
+            wine_version="c"
         fi
         if [ $wine_version == "c" ]
         then
